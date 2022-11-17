@@ -1,0 +1,10 @@
+<div class="card">
+  <div
+    class="flex flex-wrap-reverse md:flex-wrap card-container purple-container"
+  >
+    <app-animals-item
+      *ngFor="let animal of animals | filtroAnimals: filtroActual"
+      [animal]="animal"
+    ></app-animals-item>
+  </div>
+</div>

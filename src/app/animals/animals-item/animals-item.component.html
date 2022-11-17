@@ -1,0 +1,51 @@
+<div
+  class="flex align-items-center justify-content-center font-bold text-white m-2 border-round {{
+    animal.vida > 0 ? 'bg-blue-500' : 'bg-red-500'
+  }}"
+  style="min-width: 180px; min-height: 80px"
+>
+  <p-card
+    *ngIf="!editando"
+    (dblclick)="editar()"
+    header="{{ animal.name }}"
+    subheader="vida: {{ animal.vida }}"
+    [style]="{ width: '160px' }"
+    styleClass="p-card-shadow"
+  >
+    <ng-template pTemplate="header">
+      <img alt="Card" src="../../../assets/images/{{ animal.tipo }}.jpg" />
+    </ng-template>
+    <ng-template pTemplate="footer">
+      <p-button
+        label="Remove"
+        icon="pi pi-times"
+        styleClass="p-button-secondary"
+        (click)="eliminar()"
+      ></p-button>
+    </ng-template>
+  </p-card>
+
+  <p-card
+    *ngIf="editando"
+    [style]="{ width: '160px' }"
+    styleClass="p-card-shadow"
+  >
+    <ng-template pTemplate="header">
+      <img alt="Card" src="../../../assets/images/{{ animal.tipo }}.jpg" />
+    </ng-template>
+    <input
+      type="text"
+      pInputText
+      class="p-inputtext-sm"
+      [formControl]="txtInput"
+    />
+    <ng-template pTemplate="footer">
+      <p-button
+        label="Edit"
+        icon="pi pi-check"
+        styleClass="p-button-Primary"
+        (click)="terminarEdicion()"
+      ></p-button>
+    </ng-template>
+  </p-card>
+</div>

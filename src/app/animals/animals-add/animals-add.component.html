@@ -1,0 +1,57 @@
+<header class="header">
+  <h1>
+    Animals battle: <strong>{{ totalAnimals }}</strong> Felins
+  </h1>
+</header>
+<div class="card">
+  <form (ngSubmit)="guardar()" autocomplete="off" [formGroup]="miFormulario">
+    <div class="formgrid grid">
+      <div class="field col">
+        <label for="firstname2">Name</label>
+        <input
+          type="text"
+          placeholder="add new animal"
+          class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+          formControlName="name"
+        />
+        <!-- <span class="form-text text-danger" *ngIf="campoEsValido('nombre')">
+          Debe de ser de 3 letras
+        </span> -->
+      </div>
+      <div class="field col">
+        <label for="lastname2">Type</label>
+        <div class="field-radiobutton">
+          <p-radioButton
+            name="tipo"
+            inputId="radioLeon"
+            value="leones"
+            formControlName="tipo"
+          ></p-radioButton>
+          <label for="radioLeon">Leon</label>
+        </div>
+        <div class="field-radiobutton">
+          <p-radioButton
+            name="tipo"
+            inputId="radioTigre"
+            value="tigres"
+            formControlName="tipo"
+          ></p-radioButton>
+          <label for="radioTigre">Tigre</label>
+        </div>
+        <div class="field-radiobutton">
+          <p-radioButton
+            name="tipo"
+            inputId="radioGato"
+            value="gatos"
+            formControlName="tipo"
+          ></p-radioButton>
+          <label for="radioGato">Gato</label>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <!-- <button type="submit" class="btn btn-primary float-end">Guardar</button> -->
+      <p-button type="submit" label="Agregar"></p-button>
+    </div>
+  </form>
+</div>
